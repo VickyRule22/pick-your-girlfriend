@@ -22,6 +22,7 @@ body{margin:0;background:var(--aisle);color:var(--ink);font:16px/1.5 var(--body)
 .rn{display:inline-flex;flex-wrap:wrap;gap:4px 3px;align-items:center}
 .rn b{display:inline-block;font-weight:400;line-height:1;padding:3px 5px 1px;box-shadow:1px 2px 0 rgba(0,0,0,.22)}
 .rn .g{width:.35em}
+.rn .w{display:inline-flex;gap:inherit;white-space:nowrap}
 .f1{font-family:"Abril Fatface",serif;background:#fff;color:var(--hot2)}
 .f2{font-family:"Bungee",sans-serif;background:#111;color:var(--mint)}
 .f3{font-family:"Rubik Mono One",sans-serif;background:#fff6c9;color:#111}
@@ -273,11 +274,13 @@ function ransomize(el){
   const txt=el.dataset.rn;let seed=[...txt].reduce((a,c)=>a+c.charCodeAt(0),7);
   const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280};
   el.textContent='';el.setAttribute('aria-label',txt);
+  let word=null;
   [...txt].forEach(ch=>{
-    if(ch===' '){const g=document.createElement('span');g.className='g';el.appendChild(g);return}
+    if(ch===' '){const g=document.createElement('span');g.className='g';el.appendChild(g);word=null;return}
+    if(!word){word=document.createElement('span');word.className='w';el.appendChild(word)}
     const b=document.createElement('b');b.setAttribute('aria-hidden','true');
     b.className='f'+(1+Math.floor(rnd()*9));b.textContent=rnd()>.5?ch.toUpperCase():ch.toLowerCase();
-    b.style.transform=`rotate(${(rnd()*8-4).toFixed(1)}deg) translateY(${(rnd()*4-2).toFixed(1)}px)`;el.appendChild(b)});
+    b.style.transform=`rotate(${(rnd()*8-4).toFixed(1)}deg) translateY(${(rnd()*4-2).toFixed(1)}px)`;word.appendChild(b)});
 }
 document.querySelectorAll('[data-rn]').forEach(ransomize);
 

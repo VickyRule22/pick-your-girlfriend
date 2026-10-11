@@ -48,6 +48,7 @@ section{display:grid;gap:16px;padding-block:24px 30px;border-top:2px dashed #e9b
 .rn{display:flex;flex-wrap:wrap;gap:5px 3px;align-items:center}
 .rn b{display:inline-block;font-weight:400;line-height:1;padding:4px 6px 2px;box-shadow:1px 2px 0 rgba(0,0,0,.22);font-size:clamp(22px,3.4vw,34px)}
 .rn .g{width:.4em}
+.rn .w{display:inline-flex;gap:inherit;white-space:nowrap}
 .c1{background:#fff;color:var(--hot2);outline:1px solid #f1d3df}.c2{background:#111;color:var(--mint)}.c3{background:#fff6c9;color:#111}.c4{background:var(--mint);color:#7a0038}.c5{background:var(--cream);color:#111;outline:1px solid #e8dccb}.c6{background:var(--blue);color:#fff}.c7{background:var(--hot);color:#fff}.c8{background:var(--gold);color:var(--hot2)}
 .mix .sample{font-size:clamp(22px,3.4vw,34px)}
 .paid{background:#2a1420;color:#ffd3e6;border-radius:6px;padding:18px;display:grid;gap:6px}
@@ -122,14 +123,15 @@ CUT.forEach((x,i)=>{const d=document.createElement('div');d.className='spec';
 function seeded(txt){let s=[...txt].reduce((a,c)=>a+c.charCodeAt(0),7);return()=>{s=(s*9301+49297)%233280;return s/233280}}
 function piece(ch,font,cls,r){const b=document.createElement('b');b.className=cls;b.style.fontFamily=font;
   b.textContent=r()>.5?ch.toUpperCase():ch.toLowerCase();b.style.transform=`rotate(${(r()*8-4).toFixed(1)}deg) translateY(${(r()*4-2).toFixed(1)}px)`;return b}
+function addTo(el,ch,mk){if(ch===' '){const g=document.createElement('span');g.className='g';el.appendChild(g);el._w=null;return}
+  if(!el._w){el._w=document.createElement('span');el._w.className='w';el.appendChild(el._w)}el._w.appendChild(mk())}
 function draw(txt){
   txt=txt.trim()||DEFAULT;
   document.querySelectorAll('[data-one]').forEach(el=>{const x=CUT[+el.dataset.one],r=seeded(txt+x.n);el.textContent='';el.setAttribute('aria-label',txt);
-    [...txt].forEach(ch=>{if(ch===' '){const g=document.createElement('span');g.className='g';el.appendChild(g)}else el.appendChild(piece(ch,x.f,x.c,r))})});
+    el._w=null;[...txt].forEach(ch=>addTo(el,ch,()=>piece(ch,x.f,x.c,r)))});
   const mix=document.getElementById('mix'),r=seeded(txt);mix.textContent='';mix.setAttribute('aria-label',txt);
   const papers=['c1','c2','c3','c4','c5','c6','c7','c8'];
-  [...txt].forEach(ch=>{if(ch===' '){const g=document.createElement('span');g.className='g';mix.appendChild(g);return}
-    const x=CUT[Math.floor(r()*CUT.length)];mix.appendChild(piece(ch,x.f,papers[Math.floor(r()*papers.length)],r))});
+  mix._w=null;[...txt].forEach(ch=>addTo(mix,ch,()=>{const x=CUT[Math.floor(r()*CUT.length)];return piece(ch,x.f,papers[Math.floor(r()*papers.length)],r)}));
   document.querySelectorAll('[data-big],[data-body]').forEach(el=>{
     if(!el.dataset.orig)el.dataset.orig=el.textContent;
     el.textContent=txt===DEFAULT?el.dataset.orig:txt});
