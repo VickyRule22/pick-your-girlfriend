@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<title>Pick Your Girlfriend</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Archivo+Black&family=Abril+Fatface&family=Bungee&family=Rubik+Mono+One&family=Silkscreen&family=Special+Elite&family=Caveat:wght@600;700&family=Courier+Prime:wght@400;700&family=Karla:wght@400;600;700&display=swap">
+<style>
+/* Layout: the toy box on the left (the product and the shirt), the order card on the right, then a cut-and-paste copy board. Committed single look: toy-aisle pink + zine paper, no dark mode. */
+:root{
+  --aisle:#fde3ec; --ink:#2a1420; --muted:#7d5a68; --hot:#ff2e88; --hot2:#c4005c; --cream:#fff8ef; --mint:#a8ecd2; --gold:#ffd84a; --blue:#2f5fe0; --tape:rgba(255,120,170,.55);
+  --logo:"Shrikhand",Georgia,serif; --hand:"Caveat",cursive; --type:"Courier Prime","Courier New",monospace; --body:"Karla",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--aisle);color:var(--ink);font:16px/1.5 var(--body);
+  background-image:radial-gradient(circle at 1px 1px,rgba(255,46,136,.18) 1.2px,transparent 1.6px);background-size:22px 22px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:18px;padding-block:28px 70px}
+.label{font:700 12px/1.3 var(--type);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* cut-out letters */
+.rn{display:inline-flex;flex-wrap:wrap;gap:4px 3px;align-items:center}
+.rn b{display:inline-block;font-weight:400;line-height:1;padding:3px 5px 1px;box-shadow:1px 2px 0 rgba(0,0,0,.22)}
+.rn .g{width:.35em}
+.f1{font-family:"Abril Fatface",serif;background:#fff;color:var(--hot2)}
+.f2{font-family:"Bungee",sans-serif;background:#111;color:var(--mint)}
+.f3{font-family:"Rubik Mono One",sans-serif;background:#fff6c9;color:#111}
+.f4{font-family:"Silkscreen",monospace;background:var(--mint);color:#7a0038}
+.f5{font-family:"Special Elite",monospace;background:var(--cream);color:#111;outline:1px solid #e8dccb}
+.f6{font-family:"Abril Fatface",serif;background:var(--blue);color:#fff;font-style:italic}
+.f7{font-family:"Shrikhand",serif;background:var(--hot);color:#fff}
+.f8{font-family:"Archivo Black",sans-serif;background:#fff;color:#111}
+.f9{font-family:"Archivo Black",sans-serif;background:var(--gold);color:var(--hot2)}
+
+.hero{display:grid;gap:12px;margin-bottom:28px}
+.hero h1{margin:0;font-size:clamp(30px,5.4vw,56px)}
+.hero p{margin:0;max-width:64ch;font-size:18px}
+.typelink{font:700 14px var(--type);color:var(--hot2);justify-self:start}
+.hero .hand{font:700 28px/1.1 var(--hand);color:var(--hot2);transform:rotate(-1.5deg);display:inline-block}
+
+.layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:34px;align-items:start}
+@media (max-width:920px){.layout{grid-template-columns:1fr}}
+
+/* ---------- the box ---------- */
+.boxwrap{position:sticky;top:calc(env(safe-area-inset-top,0px) + 14px)}
+@media (max-width:920px){.boxwrap{position:static}}
+.box{position:relative;background:linear-gradient(160deg,#ff5aa5 0%,#ff2e88 45%,#e0137a 100%);border-radius:14px 14px 8px 8px;padding:16px 16px 0;
+  box-shadow:0 1px 0 #fff inset,10px 12px 0 #c4005c,10px 12px 24px rgba(80,0,40,.35);overflow:hidden;max-width:560px;margin-inline:auto}
+.box::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(115deg,rgba(255,255,255,.09) 0 14px,transparent 14px 34px)}
+.brand{position:relative;text-align:center;display:grid;justify-items:center;gap:8px}
+.brand .logo{font:400 clamp(30px,5.4vw,46px)/.95 var(--logo);color:#fff;text-shadow:0 3px 0 var(--hot2),0 5px 0 #7a0038,0 8px 10px rgba(0,0,0,.25);transform:rotate(-3deg)}
+.brand .rn{justify-content:center}
+.brand .rn b{font-size:clamp(17px,2.5vw,22px)}
+.window-row{position:relative;display:grid;grid-template-columns:1fr 26%;gap:12px;margin-top:14px}
+.window{position:relative;aspect-ratio:3/4.15;border-radius:46% 46% 10px 10px / 22% 22% 10px 10px;
+  background:radial-gradient(ellipse at 50% 30%,#fff7fb 0%,#ffd3e6 55%,#ffb3d2 100%);border:5px solid #fff;
+  box-shadow:inset 0 0 0 3px var(--hot2),0 2px 0 rgba(0,0,0,.15);overflow:hidden;cursor:pointer}
+.window .stars{position:absolute;inset:0;background:
+  radial-gradient(circle,#fff 0 2px,transparent 3px) 12% 18%/100% 100% no-repeat,
+  radial-gradient(circle,#fff 0 1.5px,transparent 2.5px) 86% 26%/100% 100% no-repeat,
+  radial-gradient(circle,#fff 0 2px,transparent 3px) 80% 70%/100% 100% no-repeat,
+  radial-gradient(circle,#fff 0 1.5px,transparent 2.5px) 16% 62%/100% 100% no-repeat}
+.doll{position:absolute;left:50%;bottom:3%;height:92%;transform:translateX(-50%);filter:drop-shadow(0 6px 6px rgba(120,0,60,.25));transition:opacity .25s ease-out,transform .35s cubic-bezier(.2,.8,.3,1)}
+.doll.swap{opacity:0;transform:translateX(-50%) translateY(8px) scale(.98)}
+.cello{position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 18%,rgba(255,255,255,.55) 24%,transparent 32%,transparent 60%,rgba(255,255,255,.25) 66%,transparent 72%)}
+.bubble{position:absolute;top:7%;left:6%;right:6%;background:#fff;border:3px solid var(--ink);border-radius:16px;padding:8px 12px;font:700 20px/1.15 var(--hand);color:var(--ink);text-align:center;
+  box-shadow:3px 3px 0 var(--ink);opacity:0;transform:scale(.8) rotate(-2deg);transition:opacity .2s ease-out,transform .3s cubic-bezier(.2,1.4,.4,1);z-index:3}
+.bubble::after{content:"";position:absolute;bottom:-14px;left:56%;border:10px solid transparent;border-top-color:var(--ink)}
+.bubble.on{opacity:1;transform:scale(1) rotate(-2deg)}
+.press{position:absolute;bottom:4%;left:50%;transform:translateX(-50%);font:700 11px/1 var(--type);letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:6px 9px;border-radius:20px;white-space:nowrap;z-index:3;box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.closeup{position:absolute;right:8px;bottom:58px;width:30%;aspect-ratio:1;border-radius:50%;border:4px solid #fff;box-shadow:0 0 0 3px var(--hot2),0 4px 8px rgba(0,0,0,.25);background-color:#ffe3ef;background-repeat:no-repeat;z-index:3;transition:background-image .2s}
+.closeup::after{content:"close-up!";position:absolute;bottom:-12px;left:50%;transform:translateX(-50%) rotate(-4deg);background:var(--gold);color:var(--ink);font:700 10px/1 var(--type);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:10px;white-space:nowrap}
+.tray{display:grid;grid-template-rows:auto repeat(2,1fr);gap:8px}
+.tray .tlabel{font:700 10px/1.2 var(--type);letter-spacing:.08em;text-transform:uppercase;color:#fff;text-align:center}
+.slot{background:radial-gradient(#fff 0%,#ffe3ef 80%);border:3px solid #fff;border-radius:12px;box-shadow:inset 0 0 0 2px var(--hot2);display:grid;place-items:center;padding:6px 6px 18px;min-height:90px;position:relative}
+.slot img{max-width:90%;max-height:100px;filter:drop-shadow(0 3px 3px rgba(0,0,0,.2))}
+.slot span{position:absolute;bottom:5px;left:4px;right:4px;text-align:center;font:700 9px/1.1 var(--type);letter-spacing:.04em;text-transform:uppercase;color:var(--hot2)}
+.slot.empty{color:var(--hot2);font:700 22px var(--hand)}
+.burst{position:absolute;left:4px;top:132px;width:118px;height:118px;display:grid;place-items:center;text-align:center;z-index:4;transform:rotate(-12deg)}
+.burst svg{position:absolute;inset:0;width:100%;height:100%}
+.burst p{position:relative;margin:0;width:72%;font:400 13px/1.05 "Rubik Mono One",sans-serif;color:var(--hot2)}
+.burst p small{display:block;font:700 10px/1.1 var(--type);letter-spacing:.04em;margin-top:2px}
+.plate{position:relative;margin:14px -16px 0;background:var(--cream);padding:12px 16px 10px;display:grid;gap:2px;text-align:center;border-top:4px solid var(--gold)}
+.plate .name{font:400 clamp(26px,4.2vw,36px)/1 var(--logo);color:var(--hot2)}
+.plate .type{font:700 13px/1.2 var(--type);letter-spacing:.14em;text-transform:uppercase}
+.plate .with{font:600 15px/1.35 var(--body);color:var(--muted);text-wrap:balance}
+.fine{position:relative;margin:0 -16px;background:#2a1420;color:#ffd3e6;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;padding:8px 16px;font:700 10px/1.3 var(--type);letter-spacing:.06em;text-transform:uppercase}
+.fine .warn{color:var(--gold)}
+
+/* ---------- order card ---------- */
+.card{background:var(--cream);border-radius:6px;padding:22px 20px;box-shadow:0 2px 0 #f1c6d6,6px 8px 0 rgba(196,0,92,.12);display:grid;gap:26px;min-width:0;position:relative}
+.card::before{content:"";position:absolute;top:-11px;left:40px;width:90px;height:24px;background:var(--tape);transform:rotate(-5deg)}
+.card h2{margin:0;font-size:clamp(20px,2.6vw,26px)}
+.card .intro{margin:8px 0 0;color:var(--muted)}
+fieldset{border:0;margin:0;padding:0;display:grid;gap:10px;min-width:0}
+legend{padding:0;margin-bottom:10px;display:flex;align-items:baseline;gap:10px;width:100%}
+legend .n{font:400 22px/1 var(--logo);color:#fff;background:var(--hot);width:34px;height:34px;border-radius:50%;display:inline-grid;place-items:center;flex:none;box-shadow:0 2px 0 var(--hot2)}
+legend .t{font:700 18px/1.2 var(--body)}
+legend .h{font:600 18px/1 var(--hand);color:var(--muted);margin-left:auto}
+.opts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+@media (max-width:440px){.opts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.opt{appearance:none;border:2px solid #f1c6d6;background:#fff;border-radius:10px;padding:6px 4px 8px;cursor:pointer;display:grid;gap:4px;justify-items:center;font:700 12px/1.15 var(--body);color:var(--ink);text-align:center;transition:border-color .15s ease-out,transform .15s ease-out}
+.opt:hover{transform:translateY(-2px)}
+.opt:focus-visible,.chip:focus-visible,.acc:focus-visible,.need:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.opt[aria-pressed="true"],.acc[aria-pressed="true"],.need[aria-pressed="true"]{border-color:var(--hot);box-shadow:0 0 0 2px var(--hot) inset;background:#fff2f8}
+.opt .head{width:100%;aspect-ratio:1;border-radius:8px;background:#ffe3ef;overflow:hidden;position:relative}
+.opt .head img{position:absolute;left:50%;top:0;height:300%;transform:translateX(-50%)}
+.needs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.need{appearance:none;border:2px solid #f1c6d6;background:#fff;border-radius:10px;padding:10px 12px;cursor:pointer;text-align:left;display:grid;gap:2px;color:var(--ink)}
+.need strong{font:700 15px/1.2 var(--body)} .need span{font:13px/1.3 var(--body);color:var(--muted)}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+.chip{appearance:none;border:2px solid #f1c6d6;background:#fff;border-radius:30px;padding:6px 14px;display:flex;align-items:center;gap:8px;cursor:pointer;font:700 13px/1 var(--body);color:var(--ink)}
+.chip.sw{padding-left:6px}
+.chip i{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 -3px 0 rgba(0,0,0,.15)}
+.chip[aria-pressed="true"]{border-color:var(--hot);background:#fff2f8}
+.sl{display:grid;grid-template-columns:132px minmax(0,1fr) 34px;align-items:center;gap:10px;font:700 14px/1.2 var(--body)}
+.sl output{font:700 14px var(--type);text-align:right;font-variant-numeric:tabular-nums;color:var(--hot2)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:12px;border-radius:12px;background:linear-gradient(90deg,var(--hot) var(--p,50%),#f6d3e1 var(--p,50%));box-shadow:inset 0 1px 2px rgba(0,0,0,.2);cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#d8dde6 45%,#8b93a3);border:2px solid #fff;box-shadow:0 2px 3px rgba(0,0,0,.35)}
+input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#d8dde6 45%,#8b93a3);border:2px solid #fff;box-shadow:0 2px 3px rgba(0,0,0,.35)}
+input[type=range]:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.accs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+@media (max-width:440px){.accs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.acc{appearance:none;border:2px solid #f1c6d6;background:#fff;border-radius:10px;padding:8px 4px;cursor:pointer;display:grid;gap:3px;justify-items:center;font:700 12px/1.15 var(--body);color:var(--ink);text-align:center}
+.acc img{height:50px;width:auto}
+.acc small{font:400 11px/1.2 var(--body);color:var(--muted)}
+.namebox{display:grid;gap:8px}
+.namebox input{font:400 26px/1 var(--logo);color:var(--hot2);border:2px solid #f1c6d6;border-radius:10px;padding:8px 12px;background:#fff;width:100%}
+.namebox input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.pioneers{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.pioneers button{appearance:none;border:0;background:#ffe3ef;color:var(--hot2);font:700 12px/1 var(--type);padding:7px 10px;border-radius:20px;cursor:pointer}
+.pioneers button:focus-visible{outline:3px solid var(--blue)}
+.cta{display:grid;gap:8px;justify-items:start}
+.cta a{display:inline-block;background:var(--hot);color:#fff;text-decoration:none;font:400 22px/1 var(--logo);padding:16px 26px;border-radius:40px;box-shadow:0 4px 0 var(--hot2);transition:transform .15s ease-out,box-shadow .15s ease-out}
+.cta a:hover{transform:translateY(2px);box-shadow:0 2px 0 var(--hot2)}
+.cta a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.cta p{margin:0;font:600 20px/1.1 var(--hand);color:var(--muted)}
+
+/* ---------- copy board ---------- */
+.copy{margin-top:70px;display:grid;gap:26px}
+.copy > header{display:grid;gap:8px}
+.copy h2{margin:0;font-size:clamp(26px,4.4vw,44px)}
+.copy > header p{margin:0;max-width:66ch;font-size:17px}
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+@media (max-width:900px){.pillars{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.pillars{grid-template-columns:1fr}}
+.pill{background:#fff;padding:20px 18px 18px;box-shadow:0 3px 10px rgba(60,30,40,.1);position:relative;display:grid;gap:10px;align-content:start;min-width:0}
+.pill:nth-child(odd){transform:rotate(-.7deg)} .pill:nth-child(even){transform:rotate(.6deg)}
+.pill::before{content:"";position:absolute;top:-10px;left:50%;width:76px;height:20px;margin-left:-38px;background:var(--tape);transform:rotate(3deg)}
+.pill h3{margin:0;font-size:19px}
+.pill .fear{font:700 12px/1.35 var(--type);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pill .line{font:700 22px/1.15 var(--hand);color:var(--hot2)}
+.pill p{margin:0;font-size:15px}
+.lines{background:#111;color:#f5efe3;padding:24px 22px;display:grid;gap:14px;transform:rotate(-.3deg)}
+.lines h3{margin:0}
+.lines ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px}
+@media (max-width:700px){.lines ul{grid-template-columns:1fr}}
+.lines li{font:600 18px/1.3 var(--body);padding-left:22px;position:relative}
+.lines li::before{content:"♥";position:absolute;left:0;color:var(--hot)}
+.lines li small{display:block;font:400 13px/1.3 var(--type);color:#c9b7bf;margin-top:2px}
+.check{background:#fff6c9;padding:16px 18px;border-left:6px solid var(--gold);font-size:15px;max-width:80ch}
+.check strong{font-family:var(--type);text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+.foot{margin-top:30px;font:13px/1.5 var(--type);color:var(--muted);max-width:80ch}
+@media (prefers-reduced-motion:reduce){.doll,.bubble,.opt,.cta a{transition:none}}
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <span class="label">aitechgirlfriends.com · a collective of women who build with AI</span>
+    <h1 class="rn" data-rn="Pick your girlfriend">Pick your girlfriend</h1>
+    <p>She'll build your website or your little app. She'll explain it in plain English. And she'll text you back.</p>
+    <span class="hand">real women, real work. you come first.</span>
+    <a class="typelink" href="type.html">see the type samples →</a>
+  </header>
+
+  <div class="layout">
+    <div class="boxwrap">
+      <div class="box">
+        <div class="brand">
+          <div class="logo">AI Tech Girlfriends</div>
+          <div class="rn" data-rn="You come first" aria-label="You come first">You come first</div>
+        </div>
+        <div class="burst" aria-live="polite"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon fill="#ffd84a" stroke="#fff" stroke-width="3" points="50,2 58,20 76,8 74,29 95,28 83,45 99,58 79,64 88,83 67,80 63,99 50,85 37,99 33,80 12,83 21,64 1,58 17,45 5,28 26,29 24,8 42,20"/></svg><p id="burst">NO <small>jargon!</small></p></div>
+        <div class="window-row">
+          <div class="window" id="window" role="button" tabindex="0" aria-label="Press her heart to hear her talk">
+            <div class="stars"></div>
+            <img class="doll" id="doll" src="dolls/pony-tan.webp" alt="Fashion doll in a pink satin bomber and jeans">
+            <div class="cello"></div>
+            <div class="closeup" id="closeup" aria-hidden="true"></div>
+            <div class="bubble" id="bubble"></div>
+            <span class="press">♥ press her heart</span>
+          </div>
+          <div class="tray">
+            <div class="tlabel">comes with!</div>
+            <div class="slot" id="slot0"></div>
+            <div class="slot" id="slot1"></div>
+          </div>
+        </div>
+        <div class="plate">
+          <div class="name" id="pname">Ada</div>
+          <div class="type" id="ptype">The Plain-English Princess</div>
+          <div class="with" id="pwith"></div>
+        </div>
+        <div class="fine"><span>Real women · No jargon</span><span class="warn">⚠ Warning: may cause new customers</span><span>Small business approved</span></div>
+      </div>
+    </div>
+
+    <form class="card" id="card" autocomplete="off">
+      <div><h2 class="rn" data-rn="Build her">Build her</h2><p class="intro">Tell us what your business needs, then pick the girlfriend you'd want building it. Every one is a real woman who builds with AI.</p></div>
+
+      <fieldset><legend><span class="n">1</span><span class="t">What does your business need?</span></legend>
+        <div class="needs" id="needs"></div>
+        <div class="row" id="biz" aria-label="My business is a"></div></fieldset>
+
+      <fieldset><legend><span class="n">2</span><span class="t">Her hairstyle</span><span class="h">the fun part</span></legend>
+        <div class="opts" id="hair"></div></fieldset>
+
+      <fieldset><legend><span class="n">3</span><span class="t">Her look</span></legend>
+        <div class="row" id="skin"></div>
+        <div class="row" id="eyes"></div></fieldset>
+
+      <fieldset><legend><span class="n">4</span><span class="t">Her personality</span><span class="h">slide it up</span></legend>
+        <div id="sliders" style="display:grid;gap:12px"></div></fieldset>
+
+      <fieldset><legend><span class="n">5</span><span class="t">What comes in the box</span><span class="h">pick two</span></legend>
+        <div class="accs" id="accs"></div></fieldset>
+
+      <fieldset><legend><span class="n">6</span><span class="t">Name her</span></legend>
+        <div class="namebox"><input id="nm" maxlength="14" value="Ada" aria-label="Her name">
+          <div class="pioneers"><span class="label">or after a tech pioneer:</span></div></div></fieldset>
+
+      <div class="cta"><a href="https://aitechgirlfriends.com/" target="_blank" rel="noopener">Bring her home ♥</a><p>tell her what you need. she'll make it exist.</p></div>
+    </form>
+  </div>
+
+  <!-- COPY BOARD -->
+  <section class="copy">
+    <header>
+      <span class="label">copy board · what sells to small business owners</span>
+      <h2 class="rn" data-rn="Why they'd buy">Why they'd buy</h2>
+      <p>A bakery owner doesn't care about Python. She cares that the last web guy vanished, the site is broken on phones, and she feels dumb asking about it. "You Come First" answers each of those. Every message below names a fear and then makes a promise.</p>
+    </header>
+    <div class="pillars">
+      <div class="pill"><span class="fear">Fear: getting ghosted</span><h3 class="rn" data-rn="She texts back">She texts back</h3><span class="line">"Finally, a tech person who calls you back."</span><p>The number one complaint about freelancers is that they disappear. Our version of an AI girlfriend is one who actually answers.</p></div>
+      <div class="pill"><span class="fear">Fear: feeling dumb</span><h3 class="rn" data-rn="No jargon">No jargon</h3><span class="line">"She'll explain it like a person, not a manual."</span><p>Owners stall because tech talk makes them feel small. Promise plain English and no eye-rolling.</p></div>
+      <div class="pill"><span class="fear">Fear: agency prices</span><h3 class="rn" data-rn="Small and mighty">Small and mighty</h3><span class="line">"Your little app, without the big agency."</span><p>A small matched team, sized to a small business. One brief in, one team out, which is the site's own promise.</p></div>
+      <div class="pill"><span class="fear">Fear: waiting forever</span><h3 class="rn" data-rn="Fast, and good">Fast, and good</h3><span class="line">"AI makes her fast. Experience makes her good."</span><p>This borrows the site's best line: AI made building faster, but it did not make everyone good at building.</p></div>
+      <div class="pill"><span class="fear">Fear: a site that doesn't sell</span><h3 class="rn" data-rn="Built to sell">Built to sell</h3><span class="line">"A booking button beats a pretty homepage."</span><p>Talk results, not tech: works on phones, takes bookings, takes orders, shows up on Google.</p></div>
+      <div class="pill"><span class="fear">Fear: someone else's mess</span><h3 class="rn" data-rn="Rescue me">Rescue me</h3><span class="line">"Your nephew built it with AI. She'll fix it."</span><p>Vibe Code Rescue is a real offer on the site. Lots of owners now have a half-working AI-built site, so this one sells itself.</p></div>
+    </div>
+    <div class="lines">
+      <h3 class="rn" data-rn="Ad lines">Ad lines</h3>
+      <ul>
+        <li>Your website's new girlfriend. She texts back.<small>shirt back · Instagram ad</small></li>
+        <li>No jargon. No ghosting. You come first.<small>the three-beat promise, for the homepage</small></li>
+        <li>For the bakery that's been "fixing the website" since 2019.<small>swap the business per ad: salon, boutique, food truck</small></li>
+        <li>She'll build your booking app. You'll actually understand it.<small>salons, studios, trainers</small></li>
+        <li>Built fast with AI. Built right by women who know what they're doing.<small>for owners who are wary of AI</small></li>
+        <li>Each girlfriend comes with: a site that works on phones, a booking button, and a person who answers.<small>the doll-box "includes" line</small></li>
+        <li>Tell her what your business needs. She'll make it exist.<small>CTA, from the site's "Tell us what needs to exist"</small></li>
+        <li>Warning: may cause new customers.<small>box fine print · sticker</small></li>
+      </ul>
+    </div>
+    <p class="check"><strong>Check before it ships:</strong> nothing here promises a price, a timeline or a response time, on purpose. If the collective can stand behind "price agreed up front" or "live in weeks," those are the two strongest claims to add.</p>
+  </section>
+
+  <p class="foot">Concept prototype. Doll photos are AI stand-ins for an original doll (not any real toy brand) and will be reshot before anything ships. The finished box doubles as the shirt graphic.</p>
+</div>
+
+<script>
+// cut-out letters: same "random" every load
+function ransomize(el){
+  const txt=el.dataset.rn;let seed=[...txt].reduce((a,c)=>a+c.charCodeAt(0),7);
+  const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280};
+  el.textContent='';el.setAttribute('aria-label',txt);
+  [...txt].forEach(ch=>{
+    if(ch===' '){const g=document.createElement('span');g.className='g';el.appendChild(g);return}
+    const b=document.createElement('b');b.setAttribute('aria-hidden','true');
+    b.className='f'+(1+Math.floor(rnd()*9));b.textContent=rnd()>.5?ch.toUpperCase():ch.toLowerCase();
+    b.style.transform=`rotate(${(rnd()*8-4).toFixed(1)}deg) translateY(${(rnd()*4-2).toFixed(1)}px)`;el.appendChild(b)});
+}
+document.querySelectorAll('[data-rn]').forEach(ransomize);
+
+const NEEDS=[
+  {k:'site', n:'A website',          d:'works on phones, shows up on Google', inc:'a website that works on phones'},
+  {k:'book', n:'A booking app',      d:'clients book and pay without calling', inc:'a booking button that takes payments'},
+  {k:'shop', n:'An online shop',     d:'sell your stuff while you sleep',     inc:'an online shop'},
+  {k:'fix',  n:'Fix my AI-built site',d:'half-working, and nobody knows why', inc:'a rescue for your half-built site'}];
+const BIZ=['bakery','salon','boutique','studio','food truck','practice'];
+const HAIR=[{k:'pony',n:'Ship-It Ponytail'},{k:'crimp',n:'Big Launch Hair'},{k:'puffs',n:'Puff Puff Publish'},{k:'bob',n:'Clean Code Bob'}];
+const SKIN=[{k:'light',n:'Light',c:'#f6d2bd'},{k:'tan',n:'Tan',c:'#c98d63'},{k:'deep',n:'Deep',c:'#6b3f28'}];
+const EYES=[{k:'brown',n:'Brown',c:'#6a3e1f'},{k:'hazel',n:'Hazel',c:'#8c7a3a'},{k:'blue',n:'Blue',c:'#3d7fd6'},{k:'green',n:'Green',c:'#3f9a5e'}];
+const TRAITS=[
+  {k:'plain', n:'Plain English',  type:'The Plain-English Princess', burst:['NO','jargon!'],
+    says:b=>['I\'ll explain it like a person','no such thing as a dumb question','here\'s what that means for your '+b]},
+  {k:'texts', n:'Texts back',     type:'The Always-Texts-Back Angel',burst:['TEXTS','back!'],
+    says:b=>['saw your message, on it 💗','good morning! quick update on your site','you up? your '+b+'\'s site is live']},
+  {k:'speed', n:'Speed',          type:'The Ship-It Sweetheart',     burst:['SO','fast!'],
+    says:b=>['it\'s live. go get some customers','done before your coffee got cold','your '+b+' is open online now']},
+  {k:'pretty',n:'Makes it pretty',type:'The Website Bestie',         burst:['SO','pretty!'],
+    says:b=>['your '+b+' deserves a cute website','I made the book button pink. you\'re welcome','your photos look so good now']},
+  {k:'brains',n:'Tech brains',    type:'The Little App Baddie',      burst:['REAL','tech brains!'],
+    says:b=>['booking, payments, reminders. handled','I fixed the thing nobody could fix','your '+b+' now runs itself a little']}];
+const ACC=[
+  {k:'laptop',n:'Pink laptop',sub:'your new site',   tray:'new website'},
+  {k:'coffee',n:'Coffee',     sub:'weekly check-ins',tray:'weekly check-ins'},
+  {k:'duck',  n:'Debug duck', sub:'bug fixes',       tray:'bug fixes'},
+  {k:'phones',n:'Headphones', sub:'she listens',     tray:'she listens'}];
+const PIONEERS=['Ada','Grace','Hedy','Radia','Katherine','Margaret','Annie'];
+
+let S={need:'book',biz:'salon',hair:'pony',skin:'tan',eyes:'brown',t:{plain:8,texts:7,speed:6,pretty:6,brains:5},acc:['laptop','coffee'],name:'Ada'};
+try{const s=JSON.parse(localStorage.getItem('gf-picker-v2'));if(s&&s.t&&s.need)S={...S,...s}}catch(e){}
+const save=()=>{try{localStorage.setItem('gf-picker-v2',JSON.stringify(S))}catch(e){}};
+const $=id=>document.getElementById(id);
+const src=(h,s,e)=>`dolls/${h}-${s}-${e||'brown'}.webp`;
+const FACE={pony:.155,crimp:.16,puffs:.168,bob:.135};
+HAIR.forEach(h=>SKIN.forEach(s=>EYES.forEach(e=>{const i=new Image();i.src=src(h.k,s.k,e.k)})));
+const mk=(cls,html,on,k)=>{const b=document.createElement('button');b.type='button';b.className=cls;b.dataset.k=k;b.innerHTML=html;b.onclick=on;return b};
+
+NEEDS.forEach(n=>$('needs').appendChild(mk('need',`<strong>${n.n}</strong><span>${n.d}</span>`,()=>{S.need=n.k;render()},n.k)));
+const bl=document.createElement('span');bl.className='label';bl.style.alignSelf='center';bl.textContent='for my';$('biz').appendChild(bl);
+BIZ.forEach(b=>$('biz').appendChild(mk('chip',b,()=>{S.biz=b;render()},b)));
+HAIR.forEach(h=>$('hair').appendChild(mk('opt',`<span class="head"><img alt="" src="${src(h.k,S.skin)}"></span>${h.n}`,()=>{S.hair=h.k;render(true)},h.k)));
+SKIN.forEach(s=>$('skin').appendChild(mk('chip sw',`<i style="background:${s.c}"></i>${s.n}`,()=>{S.skin=s.k;render(true)},s.k)));
+EYES.forEach(s=>$('eyes').appendChild(mk('chip sw',`<i style="background:radial-gradient(circle,#111 0 28%,${s.c} 30% 70%,#fff 72%)"></i>${s.n} eyes`,()=>{S.eyes=s.k;render(true)},s.k)));
+TRAITS.forEach(t=>{const w=document.createElement('label');w.className='sl';
+  w.innerHTML=`<span>${t.n}</span><input type="range" min="0" max="10" step="1" id="r-${t.k}"><output id="o-${t.k}"></output>`;
+  $('sliders').appendChild(w);const r=w.querySelector('input');r.value=S.t[t.k];r.oninput=()=>{S.t[t.k]=+r.value;render()}});
+ACC.forEach(a=>$('accs').appendChild(mk('acc',`<img alt="" src="acc/${a.k}.webp">${a.n}<small>${a.sub}</small>`,()=>{const i=S.acc.indexOf(a.k);if(i>-1)S.acc.splice(i,1);else{S.acc.push(a.k);if(S.acc.length>2)S.acc.shift()}render()},a.k)));
+PIONEERS.forEach(p=>{const b=document.createElement('button');b.type='button';b.textContent=p;b.onclick=()=>{S.name=p;$('nm').value=p;render()};document.querySelector('.pioneers').appendChild(b)});
+$('nm').value=S.name;$('nm').oninput=e=>{S.name=e.target.value;render()};
+$('card').addEventListener('submit',e=>e.preventDefault());
+
+const leadTrait=()=>TRAITS.reduce((a,t)=>S.t[t.k]>S.t[a.k]?t:a,TRAITS[0]);
+const press=(id,k)=>$(id).querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===k));
+let lastDoll='';
+function placeCloseup(url){const im=new Image();im.onload=()=>{const cu=$('closeup'),W=4.2,bgH=W*im.naturalHeight/im.naturalWidth,f=FACE[S.hair];
+  cu.style.backgroundImage=`url(${url})`;cu.style.backgroundSize=`${W*100}% auto`;cu.style.backgroundPosition=`50% ${Math.max(0,Math.min(100,(f*bgH-.5)/(bgH-1)*100)).toFixed(2)}%`};im.src=url}
+function render(swap){
+  const d=$('doll'),next=src(S.hair,S.skin,S.eyes);
+  if(next!==lastDoll){if(lastDoll&&swap){d.classList.add('swap');setTimeout(()=>{d.src=next;d.onload=()=>d.classList.remove('swap')},180)}else d.src=next;lastDoll=next}
+  press('needs',S.need);press('biz',S.biz);press('hair',S.hair);press('skin',S.skin);press('eyes',S.eyes);
+  $('accs').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',S.acc.includes(b.dataset.k)));
+  $('hair').querySelectorAll('.head img').forEach((im,i)=>{const n=src(HAIR[i].k,S.skin,S.eyes);if(!im.src.endsWith(n))im.src=n});
+  TRAITS.forEach(t=>{$('r-'+t.k).style.setProperty('--p',S.t[t.k]*10+'%');$('o-'+t.k).textContent=S.t[t.k]});
+  const T=leadTrait(),h=HAIR.find(x=>x.k===S.hair),e=EYES.find(x=>x.k===S.eyes),n=NEEDS.find(x=>x.k===S.need);
+  placeCloseup(next);
+  $('pname').textContent=(S.name||'').trim()||'Your girl';
+  $('ptype').textContent=T.type;
+  $('pwith').textContent=`with ${h.n}, twinkling ${e.n.toLowerCase()} eyes, and ${n.inc} for your ${S.biz}!`;
+  $('burst').innerHTML=`${T.burst[0]} <small>${T.burst[1]}</small>`;
+  [0,1].forEach(i=>{const s=$('slot'+i),a=ACC.find(x=>x.k===S.acc[i]);
+    s.className='slot'+(a?'':' empty');s.innerHTML=a?`<img alt="" src="acc/${a.k}.webp"><span>${a.tray}</span>`:'♥'});
+  save();
+}
+let said=0,tm;
+function talk(){const b=$('bubble'),lines=leadTrait().says(S.biz);b.textContent=lines[said++%lines.length];b.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>b.classList.remove('on'),2800)}
+$('window').onclick=talk;$('window').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();talk()}};
+render();
+</script>
