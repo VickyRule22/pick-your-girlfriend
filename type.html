@@ -56,6 +56,26 @@ section{display:grid;gap:16px;padding-block:24px 30px;border-top:2px dashed #e9b
 .paid p{margin:0;font-size:14.5px}
 .foot{margin-top:24px;font:13px/1.5 var(--type);color:var(--muted)}
 </style>
+<style>
+.pbar{background:#2a1420;color:#ffd3e6;font:700 12px/1 "Courier Prime","Courier New",monospace;letter-spacing:.06em;
+  padding:calc(env(safe-area-inset-top,0px) + 9px) 16px 9px;display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap}
+.pbar .pb-brand{display:flex;align-items:center;gap:8px;text-transform:uppercase;white-space:nowrap}
+.pbar .pb-dot{width:8px;height:8px;border-radius:50%;background:#ff2e88;box-shadow:0 0 0 3px rgba(255,46,136,.3)}
+.pbar .pb-pill{background:#ffd84a;color:#2a1420;padding:3px 7px;border-radius:10px}
+.pbar nav{display:flex;gap:4px;flex-wrap:wrap}
+.pbar nav a{color:#ffd3e6;text-decoration:none;padding:6px 10px;border-radius:14px;white-space:nowrap}
+.pbar nav a:hover{background:rgba(255,255,255,.1)}
+.pbar nav a[aria-current]{background:#ff2e88;color:#fff}
+.pbar nav a:focus-visible{outline:2px solid #ffd84a;outline-offset:2px}
+.pbar .pb-note{margin-left:auto;color:#bfa3b0;font-weight:400;white-space:nowrap}
+@media (max-width:640px){.pbar .pb-note{display:none}}
+</style>
+<div class="pbar" role="banner">
+  <span class="pb-brand"><span class="pb-dot" aria-hidden="true"></span>AI Tech Girlfriends <span class="pb-pill">prototype</span></span>
+  <nav aria-label="Prototype pages"><a href="./">Pick your girlfriend</a><a href="type.html" aria-current="page">Type samples</a><a href="style-guide/">Style guide</a></nav>
+  <span class="pb-note">concept work · not for sale</span>
+</div>
+
 
 <div class="wrap">
   <a class="back" href="index.html">← back to Pick Your Girlfriend</a>
